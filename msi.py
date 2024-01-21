@@ -39,10 +39,12 @@ print("X:", X)
 print("Y:", Y)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
+#sieć neuronowa
+
 model = Sequential()
-model.add(Dense(64, activation='relu', input_shape=(k,)))
-model.add(Dense(32, activation='relu'))
-model.add(Dense(n))
+model.add(Dense(64, activation='relu', input_shape=(k,))) #warstwa 1 liczba wejsc
+model.add(Dense(32, activation='relu')) #wartwa 2
+model.add(Dense(n)) #liczba wyjść
 
 model.compile(optimizer='adam', loss='mean_squared_error')
 history = model.fit(X_train, Y_train, epochs=100, batch_size=32, validation_data=(X_test, Y_test), verbose=1)
